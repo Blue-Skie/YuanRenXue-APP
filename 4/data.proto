@@ -1,0 +1,18 @@
+syntax = "proto3";
+package challenge;
+
+
+service Challenge {//定义服务,用在rpc传输中
+  rpc SayHello(HelloRequest) returns (HelloReply){}
+}
+message HelloRequest {
+  int32 page = 1;
+  int64 time = 2;
+  string sign = 3;
+}
+message HelloReply{
+  message r{
+    string message = 1;
+  }
+  repeated r resp = 1;
+}
